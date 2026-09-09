@@ -1,0 +1,58 @@
+name: Compilar para Mac
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  compilar:
+    runs-on: macos-latest
+    timeout-minutes: 45
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Instalar .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Instalar herramientas para Mac
+        run: dotnet workload install maui-maccatalyst
+
+      - name: Crear aplicación
+        shell: bash
+        run: |
+          set -euo pipefail
+          PROJECT=$(find . -name SistemaNacoMac.csproj -print -quit)
+          if [ -z "$PROJECT" ]; then
+            echo "No se encontró SistemaNacoMac.csproj"
+            exit 1
+          fi
+          dotnet publish "$PROJECT" \
+            -f net10.0-maccatalyst \
+            -c Release \
+            -p:CreatePackage=false \
+            -p:EnableCodeSigning=false \
+            -p:EnablePackageSigning=false
+
+      - name: Preparar archivo para descargar
+        shell: bash
+        run: |
+          set -euo pipefail
+          APP=$(find . -type d -name '*.app' -path '*/bin/Release/*' -print -quit)
+          if [ -z "$APP" ]; then
+            echo "No se generó la aplicación .app"
+            exit 1
+          fi
+          ditto -c -k --sequesterRsrc --keepParent \
+            "$APP" Sistema-NACO-Mac.zip
+
+      - name: Guardar aplicación
+        uses: actions/upload-artifact@v4
+        with:
+          name: Sistema-NACO-Mac
+          path: Sistema-NACO-Mac.zip
+          if-no-files-found: error
