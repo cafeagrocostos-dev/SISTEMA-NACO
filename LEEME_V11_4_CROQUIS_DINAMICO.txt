@@ -1,0 +1,17 @@
+SISTEMA NACO V11.4 - CROQUIS DINAMICO Y COMPARTIDO
+
+CAMBIOS
+- El croquis de Windows ya no dibuja grandes bloques de celdas vacías.
+- El croquis de macOS se muestra dentro del área visible y su zoom conserva el tamaño desplazable correcto.
+- Todas las columnas de una sección usan una altura común, por lo que sus encabezados quedan alineados.
+- Las celdas se agregan automáticamente a medida que se registran nuevos ingresos.
+- Las celdas vacías reservadas para alineación son invisibles.
+- Los reportes históricos usan el orden central guardado en dbo.NacoCroquisConfiguracion.
+- Windows y macOS continúan leyendo las mismas posiciones de dbo.NacoPosiciones.
+
+BASE DE DATOS
+Si ACTUALIZAR_CROQUIS_COMPARTIDO_SQL_COMPATIBLE.sql ya se ejecutó correctamente y mostró 224 filas, no debe ejecutarlo otra vez.
+
+ARCHIVO PARA ABRIR EN VISUAL STUDIO
+Windows: SISTEMA_NACO.vbproj
+macOS: SistemaNacoMac.sln

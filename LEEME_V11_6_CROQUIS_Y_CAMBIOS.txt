@@ -1,0 +1,14 @@
+SISTEMA NACO V11.6 PARA macOS
+
+CROQUIS
+- La pantalla usa las mismas dos partes de 28 columnas que funcionan en los reportes.
+- Use PARTE 1 y PARTE 2 para cambiar de mitad.
+- La rueda del mouse controla el zoom.
+- Mantenga presionado el botón izquierdo y arrastre para desplazarse.
+- Los botones +, - y porcentaje también funcionan.
+
+REPORTES
+Incluyen un cuadro UBICACIONES MODIFICADAS con la acción, ubicación, producto, medida, pallets y cajas. En movimientos muestra por separado la ubicación de retiro y la ubicación donde se colocó.
+
+No es necesario ejecutar nuevamente el instalador SQL.
+Abra SistemaNacoMac.sln en Visual Studio.

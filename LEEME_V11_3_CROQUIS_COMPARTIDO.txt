@@ -1,0 +1,18 @@
+SISTEMA NACO V11.3 - CROQUIS CENTRAL COMPARTIDO
+
+CAMBIO PRINCIPAL
+El diseño y el estado del croquis se comparten mediante SQL Server. Windows y macOS leen la tabla dbo.NacoCroquisConfiguracion y las posiciones de dbo.NacoPosiciones.
+
+INSTALACION EN UNA BASE EXISTENTE
+1. Abra ACTUALIZAR_CROQUIS_COMPARTIDO_SQL.sql en SQL Server Management Studio.
+2. Ejecútelo una sola vez con una cuenta administradora sobre la base SISTEMA_NACO.
+3. Abra la aplicación Windows o macOS y pulse ACTUALIZAR en Croquis.
+
+El instalador no elimina inventario, movimientos ni usuarios. Conserva las posiciones actuales y crea el diseño inicial A1-D56 con 12 espacios por ubicación. Las secciones B y D mantienen su orientación actual.
+
+SINCRONIZACION
+Cada ingreso, salida, movimiento, salida por daño e incorporación de inventario físico actualiza las existencias y las posiciones dentro de la misma transacción SQL. Al pulsar ACTUALIZAR, ambos sistemas muestran el mismo estado.
+
+ARCHIVO PARA ABRIR EN VISUAL STUDIO
+Windows: SISTEMA_NACO.vbproj
+macOS: SistemaNacoMac.sln

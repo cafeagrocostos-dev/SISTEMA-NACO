@@ -1,0 +1,12 @@
+SISTEMA NACO macOS V11.5 - CROQUIS INTERACTIVO
+
+- Corrige el área vacía del croquis en la pantalla principal.
+- Divide cada sección en bloques de 28 columnas para evitar límites del WebView.
+- La rueda del mouse controla el zoom.
+- Mantenga presionado el botón izquierdo y arrastre para desplazarse horizontal o verticalmente.
+- Los botones +, - y porcentaje continúan disponibles.
+- Los reportes conservan dos partes ordenadas.
+- Las columnas crecen juntas conforme se agregan nuevas posiciones.
+
+No debe volver a ejecutar el instalador SQL si anteriormente mostró 224 filas y ejecución correcta.
+Abra SistemaNacoMac.sln en Visual Studio.
